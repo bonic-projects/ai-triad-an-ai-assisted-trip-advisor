@@ -17,24 +17,17 @@ class LoginRegisterWidget extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return GridView.count(
-      crossAxisCount: 1,
+    return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.all(18.0),
-          child: CustomButton(
-            onTap: onLogin,
-            text: "Login",
-            isLoading: false,
-          ),
+        CustomButton(
+          onTap: onLogin,
+          text: "Login",
+          isLoading: false,
         ),
-        Padding(
-          padding: const EdgeInsets.all(18.0),
-          child: CustomButton(
-            onTap: onRegister,
-            text: "Register",
-            isLoading: false,
-          ),
+        CustomButton(
+          onTap: onRegister,
+          text: "Register",
+          isLoading: false,
         ),
       ],
     );
