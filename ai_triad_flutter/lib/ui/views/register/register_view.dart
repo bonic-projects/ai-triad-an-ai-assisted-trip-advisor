@@ -55,10 +55,15 @@ class RegisterView extends StackedView<RegisterViewModel> with $RegisterView {
       appBar: AppBar(
         title: const Text('Register'),
       ),
-      body: SingleChildScrollView(
-        child: Center(
-          child: Column(
-            mainAxisSize: MainAxisSize.min,
+      body: Container(
+        decoration: const BoxDecoration(
+          image: DecorationImage(
+            image: AssetImage("assets/views/register.jpg"),
+            fit: BoxFit.fitWidth,
+          ),
+        ),
+        child: Container(
+          child: ListView(
             children: [
               Padding(
                 padding: const EdgeInsets.all(12.0),

@@ -14,6 +14,12 @@ import 'package:ai_triad/ui/views/register/register_view.dart';
 import 'package:ai_triad/ui/bottom_sheets/alert/alert_sheet.dart';
 import 'package:ai_triad/services/rtdb_service.dart';
 import 'package:ai_triad/ui/views/login_register/login_register_view.dart';
+import 'package:ai_triad/ui/views/chat/chat_view.dart';
+import 'package:ai_triad/ui/views/add_hotel/add_hotel_view.dart';
+import 'package:ai_triad/ui/views/add_travel_modes/add_travel_modes_view.dart';
+
+import '../services/gpt_service.dart';
+import 'package:ai_triad/ui/views/trip/trip_view.dart';
 // @stacked-import
 
 @StackedApp(
@@ -25,6 +31,10 @@ import 'package:ai_triad/ui/views/login_register/login_register_view.dart';
     MaterialRoute(page: ProfileView),
     MaterialRoute(page: RegisterView),
     MaterialRoute(page: LoginRegisterView),
+    MaterialRoute(page: ChatView),
+    MaterialRoute(page: AddHotelView),
+    MaterialRoute(page: AddTravelModesView),
+    MaterialRoute(page: TripView),
 // @stacked-route
   ],
   dependencies: [
@@ -36,6 +46,7 @@ import 'package:ai_triad/ui/views/login_register/login_register_view.dart';
     LazySingleton(classType: FirestoreService),
     LazySingleton(classType: UserService),
     LazySingleton(classType: RtdbService),
+    LazySingleton(classType: GptChatService),
 // @stacked-service
   ],
   bottomsheets: [

@@ -1,3 +1,4 @@
+import 'package:ai_triad/ui/common/app_colors.dart';
 import 'package:flutter/material.dart';
 
 class CustomButton extends StatelessWidget {
@@ -16,22 +17,32 @@ class CustomButton extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.all(8.0),
       child: isLoading
-          ? const Padding(
-              padding: EdgeInsets.all(8.0),
-              child: CircularProgressIndicator(strokeWidth: 2),
+          ? Center(
+              child: const Padding(
+                padding: EdgeInsets.all(8.0),
+                child: CircularProgressIndicator(strokeWidth: 2),
+              ),
             )
           : TextButton(
               onPressed: onTap,
               child: Container(
                   decoration: BoxDecoration(
+                      color: kcLightGrey,
                       border: Border.all(
-                        color: Colors.teal,
+                        color: kcPrimaryColor,
                       ),
                       borderRadius:
-                          const BorderRadius.all(Radius.circular(40))),
-                  child: Padding(
-                    padding: const EdgeInsets.all(16.0),
-                    child: Text(text),
+                          const BorderRadius.all(Radius.circular(20))),
+                  child: ConstrainedBox(
+                    constraints: const BoxConstraints(minWidth: 100),
+                    child: Padding(
+                      padding: const EdgeInsets.all(16.0),
+                      child: Text(
+                        text,
+                        textAlign: TextAlign.center,
+                        style: const TextStyle(fontWeight: FontWeight.bold),
+                      ),
+                    ),
                   )),
             ),
     );

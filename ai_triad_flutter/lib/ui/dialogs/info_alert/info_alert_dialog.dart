@@ -83,7 +83,30 @@ class InfoAlertDialog extends StackedView<InfoAlertDialogModel> {
                 width: double.infinity,
                 alignment: Alignment.center,
                 child: const Text(
-                  'Got it',
+                  'Paid',
+                  style: TextStyle(
+                    color: Colors.white,
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+                decoration: BoxDecoration(
+                  color: Colors.black,
+                  borderRadius: BorderRadius.circular(10),
+                ),
+              ),
+            ),
+            verticalSpaceMedium,
+            GestureDetector(
+              onTap: () => completer(DialogResponse(
+                confirmed: false,
+              )),
+              child: Container(
+                height: 50,
+                width: double.infinity,
+                alignment: Alignment.center,
+                child: const Text(
+                  'Cancel',
                   style: TextStyle(
                     color: Colors.white,
                     fontWeight: FontWeight.bold,

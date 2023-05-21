@@ -16,30 +16,38 @@ class HomeViewModel extends BaseViewModel {
 
   final _userService = locator<UserService>();
   bool get hasUser => _userService.hasLoggedInUser;
+  AppUser? get user => _userService.user;
 
   // Place anything here that needs to happen before we get into the application
   Future runStartupLogic() async {
+    setBusy(true);
     // await Future.delayed(const Duration(seconds: 1));
     if (hasUser) {
-      setBusy(true);
-      AppUser? _user = await _userService.fetchUser();
-      if (_user != null) {
-        log.i(_user.fullName);
-        if (_user.userRole == 'patient') openUserView();
-        if (_user.userRole == 'doctor') openDoctorView();
-      } else {
-        log.i("Error");
+      if (user == null) {
+        await _userService.fetchUser();
       }
       setBusy(false);
     }
   }
 
-  void openDoctorView() {
-    // _navigationService.navigateToDoctorView();
+  void openChatView() {
+    _navigationService.navigateToChatView();
   }
 
-  void openUserView() {
-    // _navigationService.navigateToPatientView();
+  void openHotelAddView() {
+    _navigationService.navigateToAddHotelView();
+  }
+
+  void openTravelModesAddView() {
+    _navigationService.replaceWithTripView();
+  }
+
+  void openProfileView() {
+    _navigationService.replaceWithProfileView();
+  }
+
+  void openTripView() {
+    _navigationService.navigateToTripView();
   }
 
   void showDialog() {
@@ -48,5 +56,10 @@ class HomeViewModel extends BaseViewModel {
       title: 'Stacked Rocks!',
       // description: 'Give stacked $_counter stars on Github',
     );
+  }
+
+  void logout() {
+    _userService.logout();
+    _navigationService.replaceWithLoginRegisterView();
   }
 }

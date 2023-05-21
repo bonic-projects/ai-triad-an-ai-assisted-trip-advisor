@@ -1,6 +1,7 @@
 import 'package:ai_triad/app/app.bottomsheets.dart';
 import 'package:ai_triad/app/app.locator.dart';
 import 'package:ai_triad/app/app.logger.dart';
+import 'package:ai_triad/app/app.router.dart';
 import 'package:ai_triad/models/appuser.dart';
 import 'package:ai_triad/services/user_service.dart';
 import 'package:stacked/stacked.dart';
@@ -68,7 +69,7 @@ class RegisterViewModel extends FormViewModel {
           ),
         );
         if (error == null) {
-          _navigationService.back();
+          _navigationService.pushNamedAndRemoveUntil(Routes.homeView);
         } else {
           log.i("Firebase error");
           _bottomSheetService.showCustomSheet(

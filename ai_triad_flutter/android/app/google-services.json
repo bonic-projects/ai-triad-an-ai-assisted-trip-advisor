@@ -1,42 +1,34 @@
 {
   "project_info": {
-    "project_number": "214754856600",
-    "firebase_url": "https://doctor-robo-default-rtdb.asia-southeast1.firebasedatabase.app",
-    "project_id": "doctor-robo",
-    "storage_bucket": "doctor-robo.appspot.com"
+    "project_number": "938718442319",
+    "project_id": "ai-triad",
+    "storage_bucket": "ai-triad.appspot.com"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:214754856600:android:2042f526ac24b6453b0aed",
+        "mobilesdk_app_id": "1:938718442319:android:83a007afcf361385f0cb3a",
         "android_client_info": {
           "package_name": "com.example.ai_triad"
         }
       },
       "oauth_client": [
         {
-          "client_id": "214754856600-8klmsojrcl4rlpgpgjkvu5obhllh9qiu.apps.googleusercontent.com",
+          "client_id": "938718442319-cbpi7vibmfqk7fc0d4nbkvqammu07pgq.apps.googleusercontent.com",
           "client_type": 3
         }
       ],
       "api_key": [
         {
-          "current_key": "AIzaSyBhZxsFsu9dSYW7LvWiKIICN5q3hRVHVkw"
+          "current_key": "AIzaSyAkYh45BeZdmLT4iSa6BPAANVAXEoTjxxA"
         }
       ],
       "services": {
         "appinvite_service": {
           "other_platform_oauth_client": [
             {
-              "client_id": "214754856600-8klmsojrcl4rlpgpgjkvu5obhllh9qiu.apps.googleusercontent.com",
+              "client_id": "938718442319-cbpi7vibmfqk7fc0d4nbkvqammu07pgq.apps.googleusercontent.com",
               "client_type": 3
-            },
-            {
-              "client_id": "214754856600-b4rvqqrodejgu4g3iao10rfsra6cg2l2.apps.googleusercontent.com",
-              "client_type": 2,
-              "ios_info": {
-                "bundle_id": "com.example.secretApp"
-              }
             }
           ]
         }

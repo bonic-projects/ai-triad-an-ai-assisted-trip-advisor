@@ -44,50 +44,42 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyB3NltJlaUaGdHfEpJAUY6FxtXGDUktJPI',
-    appId: '1:214754856600:web:bffd14430d15df973b0aed',
-    messagingSenderId: '214754856600',
-    projectId: 'doctor-robo',
-    authDomain: 'doctor-robo.firebaseapp.com',
-    databaseURL:
-        'https://doctor-robo-default-rtdb.asia-southeast1.firebasedatabase.app',
-    storageBucket: 'doctor-robo.appspot.com',
-    measurementId: 'G-S31M2K58B8',
+    apiKey: 'AIzaSyBExDxFP52s_m3BtWj8J_GIcr13YHB_3S4',
+    appId: '1:938718442319:web:7e099776fb5612e8f0cb3a',
+    messagingSenderId: '938718442319',
+    projectId: 'ai-triad',
+    authDomain: 'ai-triad.firebaseapp.com',
+    storageBucket: 'ai-triad.appspot.com',
+    measurementId: 'G-J7LDLYQJWS',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyBhZxsFsu9dSYW7LvWiKIICN5q3hRVHVkw',
-    appId: '1:214754856600:android:2042f526ac24b6453b0aed',
-    messagingSenderId: '214754856600',
-    projectId: 'doctor-robo',
-    databaseURL:
-        'https://doctor-robo-default-rtdb.asia-southeast1.firebasedatabase.app',
-    storageBucket: 'doctor-robo.appspot.com',
+    apiKey: 'AIzaSyAkYh45BeZdmLT4iSa6BPAANVAXEoTjxxA',
+    appId: '1:938718442319:android:83a007afcf361385f0cb3a',
+    messagingSenderId: '938718442319',
+    projectId: 'ai-triad',
+    storageBucket: 'ai-triad.appspot.com',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCuYwATCAXZKYa7h8Io0MuqbpxfI4xz2p0',
-    appId: '1:214754856600:ios:7454331f903939983b0aed',
-    messagingSenderId: '214754856600',
-    projectId: 'doctor-robo',
-    databaseURL:
-        'https://doctor-robo-default-rtdb.asia-southeast1.firebasedatabase.app',
-    storageBucket: 'doctor-robo.appspot.com',
+    apiKey: 'AIzaSyBB7_1XLF-JTfEL7-LjQoxr2Gfqqa_a8Qg',
+    appId: '1:938718442319:ios:b495db6b34614513f0cb3a',
+    messagingSenderId: '938718442319',
+    projectId: 'ai-triad',
+    storageBucket: 'ai-triad.appspot.com',
     iosClientId:
-        '214754856600-b4rvqqrodejgu4g3iao10rfsra6cg2l2.apps.googleusercontent.com',
+        '938718442319-qsh0dq0ipr4manlmjvlq46acjlqd3c1j.apps.googleusercontent.com',
     iosBundleId: 'com.example.secretApp',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCuYwATCAXZKYa7h8Io0MuqbpxfI4xz2p0',
-    appId: '1:214754856600:ios:7454331f903939983b0aed',
-    messagingSenderId: '214754856600',
-    projectId: 'doctor-robo',
-    databaseURL:
-        'https://doctor-robo-default-rtdb.asia-southeast1.firebasedatabase.app',
-    storageBucket: 'doctor-robo.appspot.com',
+    apiKey: 'AIzaSyBB7_1XLF-JTfEL7-LjQoxr2Gfqqa_a8Qg',
+    appId: '1:938718442319:ios:b495db6b34614513f0cb3a',
+    messagingSenderId: '938718442319',
+    projectId: 'ai-triad',
+    storageBucket: 'ai-triad.appspot.com',
     iosClientId:
-        '214754856600-b4rvqqrodejgu4g3iao10rfsra6cg2l2.apps.googleusercontent.com',
+        '938718442319-qsh0dq0ipr4manlmjvlq46acjlqd3c1j.apps.googleusercontent.com',
     iosBundleId: 'com.example.secretApp',
   );
 }
