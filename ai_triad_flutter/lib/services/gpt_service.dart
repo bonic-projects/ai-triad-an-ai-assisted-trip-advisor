@@ -1,12 +1,14 @@
 import '../app/app.logger.dart';
 import 'package:chat_gpt_sdk/chat_gpt_sdk.dart';
 
+import '../constants/app_keys.dart';
+
 class GptChatService {
   final log = getLogger('GptService');
 
   final openAI = OpenAI.instance.build(
-      token: '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',
-      baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 20)),
+      token: gptToken,
+      baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 30)),
       enableLog: true);
 
   Future<String> getGptReply(
@@ -134,7 +136,7 @@ class GptChatService {
       }
     } catch (e) {
       log.e(e);
-      return "Error";
+      return "Error: $e";
     }
   }
 

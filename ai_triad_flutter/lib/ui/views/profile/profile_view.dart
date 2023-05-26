@@ -58,7 +58,7 @@ class ProfileView extends StackedView<ProfileViewModel> {
                           fontSize: 26,
                         ),
                       ),
-                      SizedBox(height: 20),
+                      const SizedBox(height: 20),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
                         child: Text(

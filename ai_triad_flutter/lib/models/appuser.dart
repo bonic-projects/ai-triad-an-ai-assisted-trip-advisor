@@ -19,7 +19,7 @@ class AppUser {
       required this.userRole});
 
   AppUser.fromData(Map<String, dynamic> data)
-      : id = data['id'],
+      : id = data['id'] ?? "",
         fullName = data['fullName'],
         // token = data['token'] ?? "",
         registeredOn = data['tokenTime'] != null

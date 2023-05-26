@@ -3,4 +3,4 @@ const String UsersFirestoreKey = 'users';
 const String TokenFirestoreKey = 'token';
 // const String ChatsFirestoreKey = 'chats';
 // const String FilesFirestoreKey = 'files';
-const agoraAppID = 'bdbedca4074a4e9da74fcbe4448aa5b8';
+const gptToken = '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';

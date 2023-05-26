@@ -40,7 +40,8 @@ class TripView extends StackedView<TripViewModel> {
                 children: [
                   // Display upcoming trips
                   const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.0),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
                     child: Text(
                       'Upcoming Trips',
                       style:
@@ -57,7 +58,8 @@ class TripView extends StackedView<TripViewModel> {
                   ),
                   // Display past trips
                   const Padding(
-                    padding: EdgeInsets.symmetric(horizontal: 16.0),
+                    padding:
+                        EdgeInsets.symmetric(horizontal: 16.0, vertical: 10),
                     child: Text(
                       'Past Trips',
                       style:

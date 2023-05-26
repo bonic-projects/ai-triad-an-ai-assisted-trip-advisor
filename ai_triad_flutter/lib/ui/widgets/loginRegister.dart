@@ -1,5 +1,4 @@
 import 'package:ai_triad/ui/widgets/customButton.dart';
-import 'package:ai_triad/ui/widgets/option.dart';
 import 'package:flutter/material.dart';
 
 class LoginRegisterWidget extends StatelessWidget {

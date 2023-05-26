@@ -1,5 +1,4 @@
 import 'package:ai_triad/ui/widgets/customBottomNavBar.dart';
-import 'package:ai_triad/ui/widgets/option.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/scheduler.dart';
 import 'package:stacked/stacked.dart';
@@ -115,7 +114,7 @@ class CustomButtonSelector extends StatelessWidget {
                   Text(
                     text,
                     textAlign: TextAlign.center,
-                    style: TextStyle(fontWeight: FontWeight.bold),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
                   ),
                   Icon(Icons.add),
                 ],

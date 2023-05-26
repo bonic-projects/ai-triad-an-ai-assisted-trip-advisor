@@ -12,7 +12,6 @@ import 'package:ai_triad/services/user_service.dart';
 import 'package:ai_triad/ui/views/profile/profile_view.dart';
 import 'package:ai_triad/ui/views/register/register_view.dart';
 import 'package:ai_triad/ui/bottom_sheets/alert/alert_sheet.dart';
-import 'package:ai_triad/services/rtdb_service.dart';
 import 'package:ai_triad/ui/views/login_register/login_register_view.dart';
 import 'package:ai_triad/ui/views/chat/chat_view.dart';
 import 'package:ai_triad/ui/views/add_hotel/add_hotel_view.dart';
@@ -45,7 +44,6 @@ import 'package:ai_triad/ui/views/trip/trip_view.dart';
     LazySingleton(classType: FirebaseAuthenticationService),
     LazySingleton(classType: FirestoreService),
     LazySingleton(classType: UserService),
-    LazySingleton(classType: RtdbService),
     LazySingleton(classType: GptChatService),
 // @stacked-service
   ],

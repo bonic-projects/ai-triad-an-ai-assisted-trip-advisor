@@ -54,7 +54,7 @@ class Trip {
 
   static Trip fromMap(String id, Map<String, dynamic> map) {
     return Trip(
-      date: DateTime.fromMillisecondsSinceEpoch(map['date']),
+      date: map['date'].toDate(),
       id: id,
       from: map['from'],
       to: map['to'],

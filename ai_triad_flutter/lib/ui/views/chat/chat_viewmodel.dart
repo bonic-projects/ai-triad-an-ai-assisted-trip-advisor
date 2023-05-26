@@ -20,6 +20,8 @@ class ChatMessage {
   ChatMessage({required this.content, required this.isUser});
 }
 
+List<String> fromStates = ["Kerala, Tamilnadu, Karnataka"];
+
 // Define the questions and their corresponding text
 const Map<int, String> questions = {
   1: 'date',
@@ -248,7 +250,7 @@ class ChatViewModel extends BaseViewModel {
   int? rate;
   void selectOption(int index) async {
     if (selectedOption == null) {
-      addMessage("Option $index", true);
+      addMessage("Option ${index + 1}", true);
       selectedOption = combinations[index];
       setBusy(true);
       await Future.delayed(const Duration(seconds: 2));
@@ -257,6 +259,10 @@ class ChatViewModel extends BaseViewModel {
       addMessage("Total amount to be payed is ₹$rate", false);
       addMessage("payment", true);
     }
+  }
+
+  void setFromState(String value) {
+    addMessage(value, true);
   }
 
   void makePayment() async {

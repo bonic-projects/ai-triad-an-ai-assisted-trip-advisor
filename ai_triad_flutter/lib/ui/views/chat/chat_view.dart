@@ -195,7 +195,10 @@ class ChatView extends StackedView<ChatViewModel> {
                         ),
                       ),
                     );
-                  } else {
+                  }
+                  // else if(message.content == 'Where are you travelling from?')
+                  // return //
+                  else {
                     return ChatMessageTile(
                       content: message.content,
                       isUser: message.isUser,
