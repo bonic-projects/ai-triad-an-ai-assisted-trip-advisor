@@ -4,6 +4,7 @@ import 'package:ai_triad/app/app.logger.dart';
 import 'package:ai_triad/constants/app_keys.dart';
 import 'package:ai_triad/models/appuser.dart';
 
+import '../models/adminData.dart';
 import '../models/hotel.dart';
 import '../models/trip.dart';
 
@@ -12,8 +13,10 @@ const tokenDocId = "doctor_token";
 class FirestoreService {
   final log = getLogger('FirestoreApi');
 
+  final CollectionReference adminCollection =
+      FirebaseFirestore.instance.collection(AdminFirestoreKey);
   final CollectionReference usersCollection =
-      FirebaseFirestore.instance.collection(UsersFirestoreKey);
+  FirebaseFirestore.instance.collection(UsersFirestoreKey);
   final CollectionReference tokenCollection =
       FirebaseFirestore.instance.collection(TokenFirestoreKey);
 
@@ -52,6 +55,21 @@ class FirestoreService {
     }
   }
 
+  AdminData? data;
+  Future<AdminData?> getAdminData() async {
+      final userDoc = await adminCollection.doc('data').get();
+      if (!userDoc.exists) {
+        return null;
+      }
+
+      final userData = userDoc.data();
+      log.v('User found. Data: $userData');
+
+      data = AdminData.fromData(userData! as Map<String, dynamic>);
+      log.i(data?.apiKey);
+      return AdminData.fromData(userData! as Map<String, dynamic>);
+  }
+
   final CollectionReference _hotelsCollectionRef =
       FirebaseFirestore.instance.collection('Hotels');
 
@@ -78,6 +96,7 @@ class FirestoreService {
 
   Future<List<HotelData>> queryHotels(
       {required String to, required String type}) async {
+    log.i("query - to: $to type: $type");
     try {
       QuerySnapshot querySnapshot = await _hotelsCollectionRef
           .where('state', isEqualTo: to)
@@ -116,6 +135,13 @@ class FirestoreService {
       if (querySnapshot.size == 0) {
         querySnapshot = await _travelModesCollectionRef
             .where('fromState', isEqualTo: from)
+            .where('place', isEqualTo: to)
+            .where('type', isEqualTo: type)
+            .get();
+      }
+
+      if (querySnapshot.size == 0) {
+        querySnapshot = await _travelModesCollectionRef
             .where('place', isEqualTo: to)
             .where('type', isEqualTo: type)
             .get();

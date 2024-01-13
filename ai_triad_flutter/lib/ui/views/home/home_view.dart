@@ -48,10 +48,10 @@ class HomeView extends StackedView<HomeViewModel> {
                   ),
                   CustomButtonSelector(
                       onTap: viewModel.openChatView, text: "PLAN A TRIP"),
-                  if (viewModel.user!.userRole == 'admin')
+                  if (viewModel.user !=null && viewModel.user!.userRole == 'admin')
                     CustomButtonSelector(
                         onTap: viewModel.openHotelAddView, text: "ADD HOTELS"),
-                  if (viewModel.user!.userRole == 'admin')
+                  if (viewModel.user != null && viewModel.user!.userRole == 'admin')
                     CustomButtonSelector(
                         onTap: viewModel.openTravelModesAddView,
                         text: "ADD TRAVEL MODES"),

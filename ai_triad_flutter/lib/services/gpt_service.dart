@@ -1,15 +1,22 @@
+import '../app/app.locator.dart';
 import '../app/app.logger.dart';
 import 'package:chat_gpt_sdk/chat_gpt_sdk.dart';
 
 import '../constants/app_keys.dart';
+import 'firestore_service.dart';
 
 class GptChatService {
   final log = getLogger('GptService');
+  final _firestoreService = locator<FirestoreService>();
 
-  final openAI = OpenAI.instance.build(
-      token: gptToken,
-      baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 30)),
-      enableLog: true);
+  late OpenAI openAI;
+
+  void setupGpt(){
+    openAI = OpenAI.instance.build(
+    token: _firestoreService.data?.apiKey ?? "",
+    baseOption: HttpSetup(receiveTimeout: const Duration(seconds: 30)),
+    enableLog: true);
+  }
 
   Future<String> getGptReply(
     String text, {

@@ -184,6 +184,7 @@ class ChatViewModel extends BaseViewModel {
     log.i(travelMode);
 
     setBusy(true);
+    log.e("$travelDestination. $accommodationType.");
     hotels = await _firestoreService.queryHotels(
         to: travelDestination, type: accommodationType);
     travelModes = await _firestoreService.queryTravelModes(
