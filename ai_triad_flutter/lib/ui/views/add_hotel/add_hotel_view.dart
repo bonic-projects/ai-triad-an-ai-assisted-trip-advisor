@@ -36,8 +36,8 @@ class AddHotelView extends StackedView<AddHotelViewModel> {
               TextFormField(
                 textCapitalization: TextCapitalization.words,
                 controller: viewModel.typeController,
-                decoration: InputDecoration(
-                  labelText: 'Type',
+                decoration: const InputDecoration(
+                  labelText: 'Type(Hotel, Resort, Home stay)',
                 ),
                 validator: viewModel.validateType,
               ),

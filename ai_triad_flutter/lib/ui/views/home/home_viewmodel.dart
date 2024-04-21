@@ -39,7 +39,7 @@ class HomeViewModel extends BaseViewModel {
   }
 
   void openTravelModesAddView() {
-    _navigationService.replaceWithAddTravelModesView();
+    _navigationService.navigateToAddTravelModesView();
   }
 
   void openProfileView() {

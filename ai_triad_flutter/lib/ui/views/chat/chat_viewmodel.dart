@@ -81,6 +81,12 @@ class ChatViewModel extends BaseViewModel {
     }
   }
 
+
+  List<String> travelModesTypes = ["Flight", "Train", "Car", "Bus"];
+  List<String> hotelTypes = ["Hotel", "Resort", "Home stay"];
+
+
+
   void onModelReady() async {
     final responseContent = await generateResponse();
     addMessage(responseContent, false);
@@ -93,8 +99,8 @@ class ChatViewModel extends BaseViewModel {
     notifyListeners();
   }
 
-  void sendMessage({bool isDate = false}) {
-    final messageContent = messageController.text.trim();
+  void sendMessage({bool isDate = false, String? messageContentIn}) {
+    final messageContent = messageContentIn ?? messageController.text.trim();
     if (messageContent.isNotEmpty || isDate) {
       if (isDate) {
         // Process the message (e.g., validate, save to variables, etc.)
@@ -219,6 +225,7 @@ class ChatViewModel extends BaseViewModel {
     setBusy(false);
     onModelReady();
   }
+
 
   List<Map<String, dynamic>> combinations = [];
   void generateCombinations() {

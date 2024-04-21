@@ -48,6 +48,7 @@ class ChatView extends StackedView<ChatViewModel> {
                 itemCount: viewModel.messages.length,
                 itemBuilder: (context, index) {
                   final message = viewModel.messages.reversed.toList()[index];
+                  print(message.content);
                   if (message.content == "payment") {
                     return Container(
                       alignment: Alignment.centerRight,
@@ -145,9 +146,16 @@ class ChatView extends StackedView<ChatViewModel> {
                                           Text(
                                               'Rate: ₹${combination['hotel'].rate}'),
                                           Text(
-                                            'Travel Mode: ${combination['travelMode'].name}',
+                                            'Travel Mode: ${combination['travelMode'].type}',
                                             style: const TextStyle(
-                                                fontWeight: FontWeight.w500),
+                                                fontWeight: FontWeight.w500,
+                                            ),
+                                          ),
+                                          Text(
+                                            'Travel Company: ${combination['travelMode'].name}',
+                                            style: const TextStyle(
+                                              fontWeight: FontWeight.w500,
+                                            ),
                                           ),
                                           Text(
                                               'Rate: ₹${combination['travelMode'].rate}'),
@@ -196,8 +204,160 @@ class ChatView extends StackedView<ChatViewModel> {
                       ),
                     );
                   }
-                  // else if(message.content == 'Where are you travelling from?')
-                  // return //
+                  else if(message.content.contains('What type of accommodation do you prefer?')) {
+                    return Column(
+                      children: [
+                        ChatMessageTile(
+                          content: message.content,
+                          isUser: message.isUser,
+                        ),
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 8),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.grey[300],
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            padding: const EdgeInsets.all(12),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text(
+                                    "Choose an option",
+                                    textAlign: TextAlign.start,
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children:
+                                  viewModel.hotelTypes.map((type) {
+                                    return GestureDetector(
+                                      onTap: () {
+                                        viewModel.sendMessage(messageContentIn: type);
+                                      },
+                                      child: Card(
+                                        elevation: 2,
+                                        margin: const EdgeInsets.symmetric(
+                                            vertical: 8.0),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Option ${viewModel.hotelTypes.indexOf(type) + 1}',
+                                                style: const TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              const SizedBox(height: 8.0),
+                                              Text(
+                                                type,
+                                                style: const TextStyle(
+                                                    fontWeight: FontWeight.w500),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  }).toList(),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  }
+                  else if(message.content.contains('How do you plan to travel?')) {
+                    return Column(
+                      children: [
+                        ChatMessageTile(
+                          content: message.content,
+                          isUser: message.isUser,
+                        ),
+                        Container(
+                          alignment: Alignment.centerLeft,
+                          padding: const EdgeInsets.symmetric(
+                              horizontal: 16, vertical: 8),
+                          child: Container(
+                            decoration: BoxDecoration(
+                              color: Colors.grey[300],
+                              borderRadius: BorderRadius.circular(8),
+                            ),
+                            padding: const EdgeInsets.all(12),
+                            child: Column(
+                              crossAxisAlignment: CrossAxisAlignment.start,
+                              children: [
+                                const Padding(
+                                  padding: EdgeInsets.all(8.0),
+                                  child: Text(
+                                    "Choose an option",
+                                    textAlign: TextAlign.start,
+                                    style: TextStyle(
+                                      fontSize: 18,
+                                      fontWeight: FontWeight.w500,
+                                      color: Colors.black,
+                                    ),
+                                  ),
+                                ),
+                                Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children:
+                                  viewModel.travelModesTypes.map((type) {
+                                    return GestureDetector(
+                                      onTap: () {
+                                        viewModel.sendMessage(messageContentIn: type);
+                                      },
+                                      child: Card(
+                                        elevation: 2,
+                                        margin: const EdgeInsets.symmetric(
+                                            vertical: 8.0),
+                                        child: Padding(
+                                          padding: const EdgeInsets.all(16.0),
+                                          child: Column(
+                                            crossAxisAlignment:
+                                            CrossAxisAlignment.start,
+                                            children: [
+                                              Text(
+                                                'Option ${viewModel.travelModesTypes.indexOf(type) + 1}',
+                                                style: const TextStyle(
+                                                  fontSize: 16,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                              const SizedBox(height: 8.0),
+                                              Text(
+                                                type,
+                                                style: const TextStyle(
+                                                    fontWeight: FontWeight.w500),
+                                              ),
+                                            ],
+                                          ),
+                                        ),
+                                      ),
+                                    );
+                                  }).toList(),
+                                ),
+                              ],
+                            ),
+                          ),
+                        ),
+                      ],
+                    );
+                  }
                   else {
                     return ChatMessageTile(
                       content: message.content,
