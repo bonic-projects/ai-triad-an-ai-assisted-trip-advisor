@@ -1,7 +1,6 @@
 import 'package:ai_triad/models/travelModes.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:ai_triad/app/app.logger.dart';
-import 'package:ai_triad/constants/app_keys.dart';
 import 'package:ai_triad/models/appuser.dart';
 
 import '../models/adminData.dart';
@@ -14,11 +13,11 @@ class FirestoreService {
   final log = getLogger('FirestoreApi');
 
   final CollectionReference adminCollection =
-      FirebaseFirestore.instance.collection(AdminFirestoreKey);
+      FirebaseFirestore.instance.collection("admin");
   final CollectionReference usersCollection =
-  FirebaseFirestore.instance.collection(UsersFirestoreKey);
+  FirebaseFirestore.instance.collection("users");
   final CollectionReference tokenCollection =
-      FirebaseFirestore.instance.collection(TokenFirestoreKey);
+      FirebaseFirestore.instance.collection("token");
 
   // final CollectionReference regionsCollection = FirebaseFirestore.instance.collection(RegionsFirestoreKey);
 

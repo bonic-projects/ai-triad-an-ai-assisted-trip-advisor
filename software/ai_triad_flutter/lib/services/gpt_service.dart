@@ -2,7 +2,6 @@ import '../app/app.locator.dart';
 import '../app/app.logger.dart';
 import 'package:chat_gpt_sdk/chat_gpt_sdk.dart';
 
-import '../constants/app_keys.dart';
 import 'firestore_service.dart';
 
 class GptChatService {
